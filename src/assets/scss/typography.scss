@@ -1,0 +1,105 @@
+@import 'vars';
+
+.typography {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.typography__variant-headline {
+  font-weight: $bold_weight;
+  font-size: $headline_size;
+  line-height: $headline_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-h1 {
+  font-weight: $medium_weight;
+  font-size: $h1_size;
+  line-height: $h1_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-h2 {
+  font-weight: $medium_weight;
+  font-size: $h2_size;
+  line-height: $h2_lh;
+}
+
+.typography__variant-text {
+  font-weight: $regular_weight;
+  font-size: $text_size;
+  line-height: $text_lh;
+}
+
+.typography__variant-textmed {
+  font-weight: $medium_weight;
+  font-size: $text_size;
+  line-height: $text_med_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-subtext {
+  font-weight: $regular_weight;
+  font-size: $sub_text_size;
+  line-height: $sub_text_lh;
+}
+
+.typography__variant-subtextmed {
+  font-weight: $medium_weight;
+  font-size: $sub_text_size;
+  line-height: $sub_text_lh;
+}
+
+.typography__variant-tag {
+  font-weight: $medium_weight;
+  font-size: $xx_small_size;
+  line-height: $xx_small_size;
+  letter-spacing: $wide_letter_spacing;
+  text-transform: uppercase;
+}
+
+.typography__variant-xsmall {
+  font-weight: $regular_weight;
+  font-size: $x_small_size;
+  line-height: $small_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-xsmallunderline {
+  font-weight: $regular_weight;
+  font-size: $x_small_size;
+  line-height: $small_lh;
+  letter-spacing: $regular_letter_spacing;
+  text-decoration-line: underline;
+}
+
+.typography__variant-xsmallmed {
+  font-weight: $medium_weight;
+  font-size: $x_small_size;
+  line-height: $small_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-xxsmall {
+  font-weight: $regular_weight;
+  font-size: $xx_small_size;
+  line-height: $xx_small_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+.typography__variant-xxsmallmed {
+  font-weight: $medium_weight;
+  font-size: $xx_small_size;
+  line-height: $xx_small_lh;
+  letter-spacing: $regular_letter_spacing;
+}
+
+@media screen and(max-width: 500px) {
+  .typography__variant-headline {
+    font-weight: $medium_weight;
+    font-size: $h2_size;
+    line-height: $h2_lh;
+    letter-spacing: $regular_letter_spacing;
+  }
+}

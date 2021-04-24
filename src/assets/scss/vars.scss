@@ -1,0 +1,91 @@
+// Family fonts
+$sim_sun: 'SimSun', sans-serif;
+$verdana: 'Verdana', sans-serif;
+$sitka: 'Sitka', sans-serif;
+
+//Text Style
+//Default font size 16px
+$headline_size: 2.25rem; //36px
+$h1_size: 1.5rem; //24px
+$h2_size: 1.125rem; //18px
+$text_size: 1rem; //16px
+$sub_text_size: 0.875rem; //14px
+$x_small_size: 0.75rem; //12px
+$xx_small_size: 0.625rem; //10px
+
+//Line Height
+$headline_lh: 2.625rem; //42px
+$h1_lh: 1.75rem; //28px
+$h2_lh: 1.3125rem; //21px
+$text_lh: 1.125rem; //18px
+$text_med_lh: 1.1875rem; //19px
+$sub_text_lh: 1rem; //16px
+$small_lh: 0.875rem; //14px
+$xx_small_lh: 0.75rem; //12px
+
+//Weight
+$bold_weight: 700;
+$medium_weight: 500;
+$regular_weight: 400;
+
+//Letter spacing
+$regular_letter_spacing: 0.04em;
+$wide_letter_spacing: 0.08em;
+
+// Shades of scss.
+// Names were given relative to the name in the colors in the CURRENT design
+// If in the future the design changes and some colors are not used, DELETE them
+
+$main_30: #734262;
+$main_35: #64385e;
+$main_40: #472357;
+$main_45: #7d466a;
+$main_50: #734262;
+$main_55: #FFA219;
+$main_60: #FFAC32;
+$main_65: #FFB64C;
+$main_70: #FFC166;
+$main_75: #FFCB80;
+$main_80: #FFD599;
+$main_85: #FFE0B3;
+$main_90: #FFEACC;
+$red: #F04848;
+$black: #282F4A;
+$green: #2ABE42;
+$white: #ffffff;
+$grey_additional_1: #7A7B82;
+$grey_additional_2: #B0BAC9;
+$grey_placeholder: #CCCCCE;
+$grey_outline: #E0E0E6;
+$grey_divider: #F4F4F7;
+$grey_background: #F4F5F9;
+$blue_additional_1: #E0E7FF;
+$blue_additional_2: #FAFBFF;
+
+$colors: (
+        red: $red,
+        blacker: $black,
+        green: $green,
+        whiter: $white,
+        main: $main_50,
+        main_30: $main_30,
+        main_35: $main_35,
+        main_40: $main_40,
+        main_45: $main_45,
+        main_50: $main_50,
+        main_55: $main_55,
+        main_60: $main_60,
+        main_65: $main_65,
+        main_70: $main_70,
+        main_75: $main_75,
+        main_80: $main_80,
+        main_85: $main_85,
+        main_90: $main_90,
+        grey_additional_1: $grey_additional_1,
+        grey_additional_2: $grey_additional_2,
+        grey_placeholder: $grey_placeholder,
+        grey_outline: $grey_outline,
+        grey_divider: $grey_divider,
+);
+
+$positions: static relative absolute fixed sticky;

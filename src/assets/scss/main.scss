@@ -1,0 +1,22 @@
+@import "core";
+@import "vendor";
+@import "vars";
+@import "typography";
+@import "custom-spacing";
+
+body, html {
+  @extend .font;
+  scroll-behavior: smooth;
+  color: $black;
+}
+
+// Inputs
+input {
+  border: 0;
+  outline: 0;
+  background: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
