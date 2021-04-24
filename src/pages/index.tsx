@@ -3,7 +3,10 @@ import Header from 'src/components/moleculas/Header';
 import SingleSlider from '../components/moleculas/SingleSlider';
 import { teamMates } from '../components/moleculas/SingleSlider/mock';
 import Footer from '../components/moleculas/Footer';
+import { useTranslation } from 'react-i18next';
+
 function IndexPage() {
+  const { t } = useTranslation();
   const navClick = (key: string) => {
     const element = document.getElementById(key);
     element && element.scrollIntoView({ block: 'center', behavior: 'smooth' });
@@ -20,29 +23,22 @@ function IndexPage() {
                 <div className="d-flex justify-content-center">
                     <div className="description py-5 pb-5">
                         {/* tslint:disable-next-line:max-line-length */}
-                        <h1 className="text-center mb-5 font-weight-bold">Plagiarism
-                            Detector</h1>
-
-                        A program that shows how similar documents are to each other
-
-                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other
-
-                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other
+                        <h1 className="text-center mb-5 font-weight-bold">{t('Plagiarism Detector')}</h1>
+                        <p>{t('aboutProject')}</p>
                     </div>
                 </div>
             </div>
           </div>
                 <div className="main-bg-2">
                     <div className="container py-4">
-                        <h1 id="about" className="mt-5 mb-3 font-weight-bold">Team members</h1>
+                        <h1 id="about" className="mt-5 mb-3 font-weight-bold">{t('teamMembers')}</h1>
                         <SingleSlider items={teamMates} />
                         <div id="donate" className="donate d-flex pt-5">
                             <div className="w-50 py-3 px-5">
-                                <h1 className="mb-3 font-weight-bold text-wrap">How you can support us</h1>
-                                <p>Your support is what makes it possible to develop our product and make the world a better.</p>
-                                <button className="showButton">{'SHOW QR CODE'}</button>
+                                <h1 className="mb-3 font-weight-bold text-wrap">{t('howToSupport')}</h1>
+                                {/* tslint:disable-next-line:max-line-length */}
+                                <p>{t('yourSupport')}</p>
                             </div>
-
                             <iframe
                                 title="kjdfh"
                                 src="https://yoomoney.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=&default-sum=&button-text=12&comment=on&hint=&successURL=http%3A%2F%2Fgoogle.com%2F&quickpay=shop&account=4100116698428981"

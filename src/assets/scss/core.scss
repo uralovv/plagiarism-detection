@@ -39,13 +39,6 @@ body, html {
   height: 400px;
 }
 
-.qr-code {
-  width: 300px;
-  height: calc(100% - 96px);
-  background: url("../../assets/images/qr.jpg") center center no-repeat;
-  background-size: contain;
-};
-
 .showButton {
   padding: 12px;
   background: black;

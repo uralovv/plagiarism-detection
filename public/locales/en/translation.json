@@ -1,3 +1,33 @@
 {
-  "Welcome to React": "Welcome to React and react-i18next"
+  "title": "Willkommen zu react und react-i18next",
+  "description": {
+    "part1": "Um loszulegen, ändere <1>src/App(DE).js</1> speicheren und neuladen.",
+    "part2": "Ändere die Sprachen zwischen deutsch und englisch mit Hilfe der beiden Schalter."
+  },
+  "yourSupport": "Your support is what makes it possible to develop our product and make the world a better.",
+  "howToSupport": "How you can support us",
+  "teamMembers": "Team members",
+  "aboutUs": "About us",
+  "contacts": "Contacts",
+  "donate": "Donate",
+  "Shukurillo": "Shukurillo",
+  "Baikhanov": "Baikhanov",
+  "Project Manager": "Project Manager",
+  "Tair": "Tair",
+  "Uralov": "Uralov",
+  "Backend Developer": "Backend Developer",
+  "Bekzhan": "Bekzhan",
+  "Bazarbay": "Bazarbay",
+  "Frontend Developer": "Frontend Developer",
+  "Aruzhan": "Aruzhan",
+  "Amankossova": "Amankossova",
+  "Software Developer": "Software Developer",
+  "Aidana": "Aidana",
+  "Lesbek": "Lesbek",
+  "Frontend Developer": "Frontend Developer",
+  "sduAdress": "Kaskelen city, Abylai khan street, 1/1",
+  "phone": "Phone",
+  "fax": "Fax number",
+  "Plagiarism Detector": "Plagiarism Detector",
+  "aboutProject": "A program that shows how similar documents are to each other\n\n                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other\n\n                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other"
 }
