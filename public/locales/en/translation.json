@@ -1,9 +1,4 @@
 {
-  "title": "Willkommen zu react und react-i18next",
-  "description": {
-    "part1": "Um loszulegen, ändere <1>src/App(DE).js</1> speicheren und neuladen.",
-    "part2": "Ändere die Sprachen zwischen deutsch und englisch mit Hilfe der beiden Schalter."
-  },
   "yourSupport": "Your support is what makes it possible to develop our product and make the world a better.",
   "howToSupport": "How you can support us",
   "teamMembers": "Team members",
@@ -29,5 +24,17 @@
   "phone": "Phone",
   "fax": "Fax number",
   "Plagiarism Detector": "Plagiarism Detector",
-  "aboutProject": "A program that shows how similar documents are to each other\n\n                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other\n\n                        A program that shows how similar documents are to each other. A program that shows how similar documents are to each other. A program that shows how similar documents are to each other"
+  "Powerful": "Powerful tool to detect similarities",
+  "clickMe": "More information",
+  "Our features": "Our features",
+  "everydayWeWork": "Everyday we work hard to make life of our clients better and happier",
+  "Easy to use": "Easy to use",
+  "Convenient interface": "Convenient interface makes this app straightforward and simple to use",
+  "Multilingual": "Multilingual",
+  "Multiple document formats": "Multiple document formats",
+  "Numerous Detection": "Numerous Detection",
+  "This tool has": "This tool has the ability to check plagiarism in different languages, you don't need to translate, just submit your document and we take care of the rest.",
+  "This tool can work": "This tool can work with various text formats, so just select your documents to check and the rest of the work will be done our tool.",
+  "In addition, it can": "In addition, it can check multiple documents for similarity. It can be effective when you are checking whole class' work.",
+  "aboutProject": "Plagiarism is one of the growing global problems experienced by the publishers, researches and educational institutions which is generally defined to be literary theft. That is, taking the ideas, documents, codes, images, and so on of another person and presenting them as their own works. This is meant by plagiarism. This confirms an act of dishonesty in academics and literature and hence it has to be stopped.To tackle this issue this tool allows you to check similarities between documents."
 }

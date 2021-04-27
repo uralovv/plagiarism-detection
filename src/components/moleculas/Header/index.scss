@@ -8,10 +8,16 @@
   box-shadow: 0 4px 6px -2px #808080;
 }
 
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 15px;
+  }
+}
+
 .lang-button {
   border: 0px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   background: white;
   &:focus {
