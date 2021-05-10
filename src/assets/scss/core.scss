@@ -57,6 +57,16 @@ body, html {
   }
 }
 
+.click-me-button-br {
+  color: white!important;
+  background: black;
+  border: 0px;
+  padding: 12px 42px;
+  &:focus {
+    outline: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .right-element, .description {
     width: 100%;
@@ -145,5 +155,40 @@ $colors_prefix: 'color';
       border-radius: 360px;
       background-color: rgba( $value, .3);
     }
+  }
+}
+.main-table {
+  border-spacing: 0;
+  border: 1px solid #EEEEEE;
+
+  .main-table_body {
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+      &:nth-of-type(odd) {
+        background: #EEEEEE;
+      }
+    }
+  }
+  .main-table_header {
+    th,
+    td {
+      margin: 0;
+      padding: 1rem;
+
+      text-align: center;
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+  th,
+  td {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
   }
 }

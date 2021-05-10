@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import Header from 'src/components/moleculas/Header';
 import SingleSlider from '../components/moleculas/SingleSlider';
 import { teamMates } from '../components/moleculas/SingleSlider/mock';
@@ -6,13 +6,47 @@ import Footer from '../components/moleculas/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import { faBook, faCog, faDesktop, faGem } from '@fortawesome/free-solid-svg-icons';
+import { useAction, useAtom } from '@reatom/react';
+import { actions, atoms } from '../store/compare';
+import { is } from 'remote-data-ts';
+import { ComparedDocument } from '../store/compare/types/ComparedDocument';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 function IndexPage() {
   const { t } = useTranslation();
+  const [score, setScore] = useState<string | undefined>(undefined);
+  const [loading, setLoading] = useState(false);
+  const [scoreResult, setScoreResults] = useState<ReadonlyArray<ComparedDocument> | undefined>([]);
   const navClick = (key: string) => {
     const element = document.getElementById(key);
     element && element.scrollIntoView({ block: 'center', behavior: 'smooth' });
   };
+
+    // tslint:disable-next-line:ter-arrow-parens
+  const getCompareByScoreRequest = useAction(() => actions.getCompareByScoreRequest());
+  const getCompareByScoreState = useAtom(atoms.compareByScore);
+
+  const onScoreChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
+    setScore(event.target.value.replace(/\D/, ''));
+  },                                                                      []);
+
+  const onCheckScore = useCallback(() => {
+    score && getCompareByScoreRequest();
+  },                               [getCompareByScoreRequest, score]);
+
+  useEffect(() => {
+    if (is.success(getCompareByScoreState)) {
+      getCompareByScoreState.data.Results
+      && setScoreResults(getCompareByScoreState.data.Results.filter(
+          // tslint:disable-next-line:ter-arrow-parens
+          (res) => res.Plagiarism_Score > Number(score)));
+    } else if (is.failure(getCompareByScoreState)) {
+      setScoreResults([]);
+    }
+    setLoading(is.loading(getCompareByScoreState));
+  },        [getCompareByScoreState, score]);
+
+  console.log(scoreResult);
 
   return (
       <div>
@@ -21,17 +55,76 @@ function IndexPage() {
               <div className="d-flex flex-column align-items-center px-5">
                 <h1 className="text-center">PLAGIARISM DETECTOR</h1>
                 <p className="text-center">{t('Powerful')}</p>
-                <a href="https://github.com/SuleymanDemirelKazakhstan/final-project-kill-a-byte" className="click-me-button">{t('clickMe')}</a>
+              <input
+                  className="mb-3 d-md-block d-none"
+                  value={score}
+                  type="text"
+                  pattern="[0-9]*"
+                  onChange={onScoreChange}
+              />
+              <button
+                  disabled={!score}
+                  onClick={onCheckScore}
+                  className="d-md-block d-none click-me-button mb-3"
+              >
+                  {t('check')}
+              </button>
               </div>
           </div>
           <div className="position-relative">
             <div className="description-main container position-relative">
+                <div className="d-md-block d-none">
+                {loading ? (
+                    <div className="d-flex justify-content-center my-5">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>) : (
+                        scoreResult && scoreResult.length > 0 ? (
+                        <div className="pt-5">
+                            <table className="main-table w-100">
+                                <thead className="main-table_header">
+                                <tr>
+                                    <th>№</th>
+                                    <th>{t('stDocument')}</th>
+                                    <th>{t('ndDocument')}</th>
+                                    <th>{t('percentage')}</th>
+                                </tr>
+                                </thead>
+                                <tbody className="main-table_body">
+                                {scoreResult.map((row, i) => {
+                                  return (
+                                        <tr>
+                                            <td>{i + 1}</td>
+                                            <td>{row.First_document}</td>
+                                            <td>{row.Second_documents}</td>
+                                            <td>{row.Plagiarism_Score}</td>
+                                        </tr>
+                                  );
+                                })}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        !is.notAsked(getCompareByScoreState) && (
+                            <div className="d-flex flex-column align-items-center pt-5">
+                                <FontAwesomeIcon className="mb-2" size="2x" icon={faExclamationTriangle} />
+                                <p className="my-2 text-center">
+                                    {t('tryAgain')}
+                                </p>
+                            </div>)
+                        )
+                )}
+                </div>
                 <div className="d-flex justify-content-center">
                     <div className="description py-5 pb-5">
                         {/* tslint:disable-next-line:max-line-length */}
                         <h1 className="text-center mb-5 font-weight-bold">{t('Plagiarism Detector')}</h1>
                         <p className="text-center">{t('aboutProject')}</p><br/>
-                        <h1 className="text-center mt-3 mb-3 font-weight-bold">{t('Our features')}</h1>
+                        <div className="d-flex justify-content-center pt-2 pb-4">
+                        <a href="https://github.com/SuleymanDemirelKazakhstan/final-project-kill-a-byte" className="click-me-button-br">{t('clickMe')}</a>
+                        </div>
+                            <h1 className="text-center mt-3 mb-3 font-weight-bold">{t('Our features')}</h1>
                         <p className="text-center mb-5">
                             {t('everydayWeWork')}
                         </p>

@@ -1,4 +1,9 @@
 {
+  "stDocument": "First document",
+  "ndDocument": "Second document",
+  "check": "Check",
+  "percentage": "Percentage",
+  "tryAgain": "Something went wrong! Try again later",
   "yourSupport": "Your support is what makes it possible to develop our product and make the world a better.",
   "howToSupport": "How you can support us",
   "teamMembers": "Team members",
