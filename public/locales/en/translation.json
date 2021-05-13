@@ -1,6 +1,7 @@
 {
   "stDocument": "First document",
   "ndDocument": "Second document",
+  "noResults": "Nothing was found for this filter!",
   "check": "Check",
   "percentage": "Percentage",
   "tryAgain": "Something went wrong! Try again later",

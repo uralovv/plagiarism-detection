@@ -1,9 +1,9 @@
 import { declareAtom } from '@reatom/core';
 import { RemoteData } from 'remote-data-ts';
 import { getCompareByScoreRequest, getCompareByScoreSuccess, getCompareByScoreFail, getCompareByScoreNotAsked } from './actions';
-import { ComparedDocumentResult } from './types/ComparedDocument';
+import { ComparedDocument } from './types/ComparedDocument';
 
-export const compareByScore = declareAtom<RemoteData<ComparedDocumentResult, any>>(
+export const compareByScore = declareAtom<RemoteData<ReadonlyArray<ComparedDocument>, any>>(
     RemoteData.notAsked(),
     // tslint:disable-next-line:ter-arrow-parens
     (on) => [

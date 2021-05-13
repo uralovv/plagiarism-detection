@@ -1,15 +1,21 @@
 import { declareAction } from '@reatom/core';
 import { getCompareByScore } from './services';
-import { ComparedDocumentResult } from './types/ComparedDocument';
+import { ComparedDocument } from './types/ComparedDocument';
 
 export const getCompareByScoreFail = declareAction<any>();
-export const getCompareByScoreSuccess = declareAction<ComparedDocumentResult>();
+export const getCompareByScoreSuccess = declareAction<ReadonlyArray<ComparedDocument>>();
 export const getCompareByScoreNotAsked = declareAction();
-export const getCompareByScoreRequest = declareAction(
-    async (payload, store) =>
-        await getCompareByScore()
+export const getCompareByScoreRequest = declareAction<{readonly score: string}>(
+    async (payload, store) => {
+      const { score } = payload;
+        console.log(Number(score));
+      return await getCompareByScore()
             // tslint:disable-next-line:ter-arrow-parens
-            .then((res) => store.dispatch(getCompareByScoreSuccess(res.data)))
+            .then((res) =>
+                      store.dispatch(getCompareByScoreSuccess(
+                          res.data.Results.filter(
+                              // tslint:disable-next-line:ter-arrow-parens
+                              (res) => res.Plagiarism_Score >= Number(score)))))
             // tslint:disable-next-line:ter-arrow-parens
-            .catch((err) => store.dispatch(getCompareByScoreFail(err))),
-);
+            .catch((err) => store.dispatch(getCompareByScoreFail(err)));
+    });

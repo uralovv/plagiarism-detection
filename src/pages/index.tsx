@@ -5,16 +5,15 @@ import { teamMates } from '../components/moleculas/SingleSlider/mock';
 import Footer from '../components/moleculas/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
-import { faBook, faCog, faDesktop, faGem } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faCog, faDesktop, faGem, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { useAction, useAtom } from '@reatom/react';
 import { actions, atoms } from '../store/compare';
 import { is } from 'remote-data-ts';
 import { ComparedDocument } from '../store/compare/types/ComparedDocument';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 function IndexPage() {
   const { t } = useTranslation();
-  const [score, setScore] = useState<string | undefined>(undefined);
+  const [score, setScore] = useState<string | undefined>(   undefined);
   const [loading, setLoading] = useState(false);
   const [scoreResult, setScoreResults] = useState<ReadonlyArray<ComparedDocument> | undefined>([]);
   const navClick = (key: string) => {
@@ -23,7 +22,7 @@ function IndexPage() {
   };
 
     // tslint:disable-next-line:ter-arrow-parens
-  const getCompareByScoreRequest = useAction(() => actions.getCompareByScoreRequest());
+  const getCompareByScoreRequest = useAction((score: string) => actions.getCompareByScoreRequest({ score }));
   const getCompareByScoreState = useAtom(atoms.compareByScore);
 
   const onScoreChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
@@ -31,22 +30,18 @@ function IndexPage() {
   },                                                                      []);
 
   const onCheckScore = useCallback(() => {
-    score && getCompareByScoreRequest();
+    score && getCompareByScoreRequest(score);
   },                               [getCompareByScoreRequest, score]);
 
   useEffect(() => {
     if (is.success(getCompareByScoreState)) {
-      getCompareByScoreState.data.Results
-      && setScoreResults(getCompareByScoreState.data.Results.filter(
-          // tslint:disable-next-line:ter-arrow-parens
-          (res) => res.Plagiarism_Score > Number(score)));
+      getCompareByScoreState.data
+      && setScoreResults(getCompareByScoreState.data);
     } else if (is.failure(getCompareByScoreState)) {
       setScoreResults([]);
     }
     setLoading(is.loading(getCompareByScoreState));
   },        [getCompareByScoreState, score]);
-
-  console.log(scoreResult);
 
   return (
       <div>
@@ -106,14 +101,21 @@ function IndexPage() {
                             </table>
                         </div>
                     ) : (
-                        !is.notAsked(getCompareByScoreState) && (
+                        is.failure(getCompareByScoreState) ? (
                             <div className="d-flex flex-column align-items-center pt-5">
                                 <FontAwesomeIcon className="mb-2" size="2x" icon={faExclamationTriangle} />
-                                <p className="my-2 text-center">
+                                <p className="my-2 text-center typography__variant-text">
                                     {t('tryAgain')}
                                 </p>
+                            </div>
+                        ) : (
+                            !is.notAsked(getCompareByScoreState) && scoreResult?.length === 0 &&
+                            (<div className="d-flex flex-column align-items-center pt-5">
+                                <p className="my-2 text-center typography__variant-text">
+                                    {t('noResults')}
+                                </p>
                             </div>)
-                        )
+                        ))
                 )}
                 </div>
                 <div className="d-flex justify-content-center">
