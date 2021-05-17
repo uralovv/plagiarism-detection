@@ -51,10 +51,11 @@ function IndexPage() {
                 <h1 className="text-center">PLAGIARISM DETECTOR</h1>
                 <p className="text-center">{t('Powerful')}</p>
               <input
-                  className="mb-3 d-md-block d-none"
+                  className="percentage-input mb-3 d-md-block d-none"
                   value={score}
                   type="text"
                   pattern="[0-9]*"
+                  placeholder={t('enterPercentage')}
                   onChange={onScoreChange}
               />
               <button

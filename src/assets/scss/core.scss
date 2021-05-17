@@ -12,6 +12,13 @@ body, html {
   font-family: Gilroy,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif;
   }
 
+.percentage-input {
+  padding: 12px;
+  &:focus {
+    outline: none;
+  }
+}
+
 .main-bg {
   color: white;
   height: 700px;

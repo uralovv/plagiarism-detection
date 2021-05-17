@@ -8,7 +8,6 @@ export const getCompareByScoreNotAsked = declareAction();
 export const getCompareByScoreRequest = declareAction<{readonly score: string}>(
     async (payload, store) => {
       const { score } = payload;
-        console.log(Number(score));
       return await getCompareByScore()
             // tslint:disable-next-line:ter-arrow-parens
             .then((res) =>
